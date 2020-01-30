@@ -1,0 +1,13 @@
+.weather-component * {
+  display: block;
+}
+
+.temp {
+  font-size: larger;
+  font-weight: bold;
+}
+
+.weather-img {
+  max-width: 100px;
+  margin: auto;
+}
