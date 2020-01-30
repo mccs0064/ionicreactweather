@@ -9,12 +9,13 @@ const Home: React.FC = () => {
 
   const [isLoading, weather] = useWeatherForCurrentLocation();
   const [cityText, setCityText] = useState('');
-
   const history = useHistory();
 
   const formSubmit = (event: React.FormEvent) => {
+    const forecastUrl = `/forecast/${cityText}`;
     event.preventDefault();
-    history.push(`/forecast/${cityText}`);
+    setCityText('');
+    history.push(forecastUrl);
   }
 
   return (
@@ -42,7 +43,7 @@ const Home: React.FC = () => {
           <IonList>
             <IonItem>
               <IonLabel position="floating">Enter City</IonLabel>
-              <IonInput name="name" type="text" onIonChange={(event) => setCityText(event.detail.value || '')}></IonInput>
+              <IonInput name="name" type="text" value={cityText} onIonChange={(event) => setCityText(event.detail.value || '')}></IonInput>
             </IonItem>
           </IonList>
           <IonButton type='submit'>
